@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<RibbonControl
+    x:Uid="Volumes" xmlns="clr-namespace:Autodesk.Windows;assembly=AdWindows"
+    xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:adwi="clr-namespace:Autodesk.Internal.Windows;assembly=AdWindows"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Autodesk.Navisworks.Gui.Roamer.AIRLook;assembly=navisworks.gui.roamer"
+    Margin="0,0,0,0">
+
+    <RibbonTab Id="PluginTab" KeyTip="K1">     
+		<RibbonPanel x:Uid="PRYANIK_Plugin_Tab">
+			<RibbonPanelSource x:Uid="PRYANIK_Plugin_Tab" KeyTip="G3" Title="Другое">
+				<local:NWRibbonButton x:Uid="Button_A" Id="ID_Button_A"
+                            Size="Large"
+                            KeyTip="G1"
+                            ShowText="True"
+                            Text="Добавить&#x0a;комментарий"
+                            Orientation="Vertical"/>			
+			</RibbonPanelSource>
+		</RibbonPanel>
+		
+    </RibbonTab>
+</RibbonControl>

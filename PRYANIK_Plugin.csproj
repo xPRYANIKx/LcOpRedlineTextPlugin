@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Navisworks2018</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{60059845-6DB3-4ED2-91C6-18DDB6B52058}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PRYANIK_Plugin</RootNamespace>
+    <AssemblyName>PRYANIK_Plugin</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <OutputPath>..\..\..\..\..\Program Files\Autodesk\Navisworks Manage 2020\Plugins\PRYANIK_Plugin\</OutputPath>
+    <DefineConstants>Navisworks2020</DefineConstants>
+    <Optimize>false</Optimize>
+    <PlatformTarget>x64</PlatformTarget>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>none</ErrorReport>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autodesk.Navisworks.Api">
+      <HintPath>C:\Program Files\Autodesk\Navisworks Manage 2020\Autodesk.Navisworks.Api.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+  </ItemGroup>
+  <Choose>
+    <When Condition=" '$(Configuration)'=='Navisworks2018' ">
+      <ItemGroup>
+        <Reference Include="AdWindows">
+          <HintPath>C:\Program Files\Autodesk\Navisworks Manage 2018\AdWindows.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Autodesk.Navisworks.Api">
+          <HintPath>C:\Program Files\Autodesk\Navisworks Manage 2018\Autodesk.Navisworks.Api.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Autodesk.Navisworks.Clash">
+          <HintPath>C:\Program Files\Autodesk\Navisworks Manage 2018\Autodesk.Navisworks.Clash.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Autodesk.Navisworks.ComApi">
+          <HintPath>C:\Program Files\Autodesk\Navisworks Manage 2018\Autodesk.Navisworks.ComApi.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Autodesk.Navisworks.Takeoff">
+          <HintPath>C:\Program Files\Autodesk\Navisworks Manage 2018\Autodesk.Navisworks.Takeoff.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.Expression.Interactions">
+          <HintPath>C:\Program Files\Autodesk\Navisworks Manage 2018\Microsoft.Expression.Interactions.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="navisworks.gui.roamer">
+          <HintPath>C:\Program Files\Autodesk\Navisworks Manage 2018\navisworks.gui.roamer.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition=" '$(Configuration)'=='Navisworks2020' ">
+      <ItemGroup>
+        <Reference Include="AdWindows">
+          <HintPath>C:\Program Files\Autodesk\Navisworks Manage 2020\AdWindows.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.Expression.Interactions">
+          <HintPath>C:\Program Files\Autodesk\Navisworks Manage 2020\Microsoft.Expression.Interactions.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="navisworks.gui.roamer">
+          <HintPath>C:\Program Files\Autodesk\Navisworks Manage 2020\navisworks.gui.roamer.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AddComment.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ru-RU\PRYANIK_Plugin.xaml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Source\comment_big.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Source\comment_small.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>
