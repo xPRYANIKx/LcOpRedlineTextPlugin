@@ -12,8 +12,11 @@ namespace PRYANIK_Plugin.Services
         internal static void GettingDataForAComment()
         {
             Selection storedSelection = doc.CurrentSelection;
-            ModelItem selectElement1 = storedSelection.GetSelectedItems()[0];
-            ModelItem selectElement2 = storedSelection.GetSelectedItems()[1];
+
+            foreach (ModelItem selectedItem in storedSelection.GetSelectedItems())
+            {
+                textComment += $"{elementPath(selectedItem)}-ID: {elementID(selectedItem)};\n";
+            }
 
             string elementPath(ModelItem item)
             {
@@ -94,6 +97,7 @@ namespace PRYANIK_Plugin.Services
             doc.SavedViewpoints.CurrentSavedViewpoint = item;
 
             doc.CurrentSelection.Clear();
+            textComment = "";
         }
     }
 }

@@ -7,15 +7,15 @@
 
 ---
 ## Принцип работы
-1. В открытой модели пользователю необходимо выделить два элемента
-2. После этого пользователю необходимо нажать кнопку **"Добавить комментарий"** на панели **"PRYANIK_Plugin"** или нажать на клавиатуре клавишу **"Q"**
+1. В открытой модели пользователю необходимо выделить от одного до 20ти элементов.
+2. После этого пользователю необходимо нажать кнопку **"Добавить комментарий"** на панели **"PRYANIK_Plugin"** или нажать на клавиатуре клавишу **"E"**.
 
-**Примечание:** другую горячую клавишу можно задать в файле **"Main.cs"** *(Q - key == 81)*. Подробнее читать [здесь](https://learn.microsoft.com/ru-ru/office/vba/language/reference/user-interface-help/keycode-constants).
+**Примечание:** другую горячую клавишу можно задать в файле **"Main.cs"** *(E - key == 69)*. Подробнее читать [здесь](https://learn.microsoft.com/ru-ru/office/vba/language/reference/user-interface-help/keycode-constants).
 
 ```c#
         public override bool KeyUp(View view, KeyModifiers modifier, ushort key, double timeOffset)
         {
-            if (Application.ActiveDocument.CurrentSelection.SelectedItems.Count == 2 && key == 81)
+            if (Application.ActiveDocument.CurrentSelection.SelectedItems.Count == 2 && key == 69)
             {
                 AddComment.GettingDataForAComment();
                 AddComment.CreateViewpoint();

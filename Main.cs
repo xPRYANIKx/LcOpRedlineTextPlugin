@@ -18,7 +18,7 @@ namespace PRYANIK_Plugin
             {
                 case "ID_Button_A":
                     {
-                        if (Application.ActiveDocument.CurrentSelection.SelectedItems.Count == 2)
+                        if (Autodesk.Navisworks.Api.Application.ActiveDocument.CurrentSelection.SelectedItems.Count >= 1 && Autodesk.Navisworks.Api.Application.ActiveDocument.CurrentSelection.SelectedItems.Count <= 20)
                         {
                             AddComment.GettingDataForAComment();
                             AddComment.CreateViewpoint();
@@ -42,7 +42,7 @@ namespace PRYANIK_Plugin_inputPlugin
     {
         public override bool KeyUp(View view, KeyModifiers modifier, ushort key, double timeOffset)
         {
-            if (Application.ActiveDocument.CurrentSelection.SelectedItems.Count == 2 && key == 81)
+            f (Autodesk.Navisworks.Api.Application.ActiveDocument.CurrentSelection.SelectedItems.Count >= 1 && Autodesk.Navisworks.Api.Application.ActiveDocument.CurrentSelection.SelectedItems.Count <= 20 && key == 69)
             {
                 AddComment.GettingDataForAComment();
                 AddComment.CreateViewpoint();
